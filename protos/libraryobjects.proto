@@ -1,0 +1,32 @@
+syntax = "proto3";
+package library;
+
+// Protobuf Objects Definitions
+
+message Book {
+  string isbn = 1; // Serves as primary key
+  string title = 2;
+  string author = 3;
+
+  enum Genre {
+    MYSTERY = 0;
+    NONFICTION = 1;
+    BIOGRAPHY = 2;
+    FANTASY = 3;
+  }
+
+  Genre genre = 4;
+  int32 year = 5;
+}
+
+message InventoryItem {
+  int32 inventory_number = 1;
+  oneof object {
+    Book book = 2;
+  }
+  enum Status {
+    AVAILABLE = 0;
+    TAKEN = 1;
+  }
+  Status status = 3;
+}

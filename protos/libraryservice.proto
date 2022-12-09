@@ -1,0 +1,38 @@
+syntax = "proto3";
+package library;
+
+import "libraryobjects.proto";
+import "google/protobuf/empty.proto";
+
+// Service Definitions
+
+// Request for CreateBook RPC
+message CreateBookRequest {
+  // Details of book to be created
+  Book book = 1;
+}
+
+// Response for CreateBook RPC
+message CreateBookResponse {
+  // Response is empty - status code and description will signify creation.
+  // It is still useful to create this empty message object
+  // incase the response is to be changed in the future.
+}
+
+// Request for GetBook RPC
+message GetBookRequest {
+  // The ISBN of the book to fetch
+  string isbn = 1;
+}
+
+// Response for GetBook RPC
+message GetBookResponse {
+  // The details of the book fetched
+  Book book = 1;
+}
+
+// Inventory Service
+service InventoryService {
+  rpc CreateBook (CreateBookRequest) returns (google.protobuf.Empty) {}
+  rpc GetBook (GetBookRequest) returns (GetBookResponse) {}
+}
