@@ -3,8 +3,13 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-import libraryservice_pb2 as libraryservice__pb2
 
+import os, sys
+
+# Add path so modules can be imported across folders
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+
+import libraryservice_pb2 as libraryservice__pb2
 
 class InventoryServiceStub(object):
     """Inventory Service

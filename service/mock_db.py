@@ -2,16 +2,18 @@
 from libraryobjects_pb2 import Book
 
 # A few books
+isbn1 = "9780062875914"
 book1 = Book(
-    isbn="0-7475-3269-9", title="Harry Potter and the Philosopher's Stone",
-    author="J. K. Rowling", genre=Book.FANTASY,
-    year=1999)
+    isbn=isbn1, title="And Then There Were None",
+    author="Agatha Christie", genre=Book.MYSTERY,
+    year=1944)
 
+isbn2 = "9780771038518"
 book2 = Book(
-    isbn="9780771038518", title="Sapiens: A Brief History of Humankind",
+    isbn=isbn2, title="Sapiens: A Brief History of Humankind",
     author="Yuval Noah Harari", genre=Book.NONFICTION,
     year=2015)
 
 # The books are present in a 'library' dictionary
 # More books can be added at runtime using the CreateBook function
-library = {"0-7475-3269-9": book1, "9780771038518": book2}
+library = {isbn1: book1, isbn2: book2}

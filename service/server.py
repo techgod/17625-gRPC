@@ -1,7 +1,6 @@
 from concurrent import futures
 
 import grpc
-import logging
 
 import libraryobjects_pb2
 import libraryservice_pb2
@@ -25,6 +24,7 @@ class InventoryServicer(libraryservice_pb2_grpc.InventoryServiceServicer):
         if request.book.isbn in library:
             context.set_code(grpc.StatusCode.ALREADY_EXISTS)
             context.set_details('Book with this ISBN already present in library.')
+            return
 
         # Create the book
         new_book = libraryobjects_pb2.Book(isbn=request.book.isbn, title=request.book.title,
@@ -47,9 +47,9 @@ def start_server():
         InventoryServicer(), server)
     server.add_insecure_port('[::]:' + port)
     server.start()
+    print("Server Started at localhost:50051 ...")
     server.wait_for_termination()
 
 
 if __name__ == '__main__':
-    logging.basicConfig()
     start_server()

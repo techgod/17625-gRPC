@@ -10,10 +10,13 @@ from google.protobuf import symbol_database as _symbol_database
 
 _sym_db = _symbol_database.Default()
 
+import os, sys
+
+# Add path so modules can be imported across folders
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
 import libraryobjects_pb2 as libraryobjects__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14libraryservice.proto\x12\x07library\x1a\x14libraryobjects.proto\x1a\x1bgoogle/protobuf/empty.proto\"0\n\x11\x43reateBookRequest\x12\x1b\n\x04\x62ook\x18\x01 \x01(\x0b\x32\r.library.Book\"\x14\n\x12\x43reateBookResponse\"\x1e\n\x0eGetBookRequest\x12\x0c\n\x04isbn\x18\x01 \x01(\t\".\n\x0fGetBookResponse\x12\x1b\n\x04\x62ook\x18\x01 \x01(\x0b\x32\r.library.Book2\x96\x01\n\x10InventoryService\x12\x42\n\nCreateBook\x12\x1a.library.CreateBookRequest\x1a\x16.google.protobuf.Empty\"\x00\x12>\n\x07GetBook\x12\x17.library.GetBookRequest\x1a\x18.library.GetBookResponse\"\x00\x62\x06proto3')
 

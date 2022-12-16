@@ -1,3 +1,8 @@
+import os
+import sys
+# Add current directory to path to use relative path for imports
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+
 import libraryobjects_pb2 as _libraryobjects_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf import descriptor as _descriptor
